@@ -13,16 +13,62 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TSP
-{
+using TSPConsole.Objects;
+
+namespace TSP {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window {
+        public static MainWindow Instance {
+            get {
+                return _Instance;
+            }
+        } private static MainWindow _Instance;
+
+        public int addedCities;
+
+        public Graph Graph {
+            get;
+        }
+
         public MainWindow()
         {
-            InitializeComponent();
+            if (_Instance == null) {
+                InitializeComponent();
+                _Instance = this;
+                Graph = new Graph();
+                FindPath.IsEnabled = false;
+                ShortestPath.Visibility = Visibility.Hidden;
+            }
+        }
+
+        public void AddCitiesCount() {
+            addedCities++;
+            CitiesAdded.Content = addedCities;
+            if(addedCities > 2) FindPath.IsEnabled = true;
+        }
+
+        private void NumberOfCities_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void AddCity_Click(object sender, RoutedEventArgs e)
+        {
+            AddCityWindow addCityWindow = new AddCityWindow();
+            addCityWindow.Show();
+        }
+
+        private void FindPath_Click(object sender, RoutedEventArgs e)
+        {
+            int value = TSPConsole.Program.ShortestPath(Graph, Graph[0].Name);
+
+            AddCity.IsEnabled = false;
+            ShortestPath.Visibility = Visibility.Visible;
+            ShortestPath.Text = value.ToString();
+            FindPath.Visibility = Visibility.Hidden;
+
         }
     }
 }

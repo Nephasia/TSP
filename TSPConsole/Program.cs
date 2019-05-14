@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TSPConsole.Objects;
 
 namespace TSPConsole {
-    class Program
+    public class Program
     {
 
         static void Main(string[] args)
@@ -42,7 +42,7 @@ namespace TSPConsole {
             Console.ReadKey();
         }
 
-        static int ShortestPath(Graph graph, string startCityName) {
+        public static int ShortestPath(Graph graph, string startCityName) {
 
             int n = graph.Count;
             List<City> path = new List<City>();
