@@ -7,36 +7,100 @@ using System.Threading.Tasks;
 using TSPConsole.Objects;
 
 namespace TSPConsole {
-    class Program {
-        static void Main(string[] args) {
+    class Program
+    {
 
+        static void Main(string[] args)
+        {
             Graph graph = new Graph();
 
-            graph.AddCity("A");
-
+            City a = new City("A");
             City b = new City("B");
-            graph.AddCity(b);
-            graph.AddPath(graph.GetCity("A"), b, 3);
-
             City c = new City("C");
-            graph.AddCity(c);
-            graph.AddPath(graph.GetCity("A"), c, 7);
-
             City d = new City("D");
+
+            graph.AddCity(a);
+            graph.AddCity(b);
+            graph.AddCity(c);
             graph.AddCity(d);
-            graph.AddPath(b, d, 2);
 
-            d.AddBiDirectionalPath(graph.GetCity("A"), 13);
+            graph.AddPath(a, b, 10);
+            graph.AddPath(a, c, 15);
+            graph.AddPath(a, d, 20);
 
-            graph.ShowAllDistances();
+            graph.AddPath(b, c, 35);
+            graph.AddPath(b, d, 25);
 
-            Console.WriteLine();
-            Console.WriteLine();
+            graph.AddPath(c, d, 30);
 
-            graph.GetCity("B").ShowAllDistances();
+            //graph.ShowAllDistances();
+
+            int shortestPath = ShortestPath(graph, "A");
+
+            Console.WriteLine("Distance of this path is equal to: " + shortestPath);
 
             Console.ReadKey();
         }
+
+        static int ShortestPath(Graph graph, string startCityName) {
+
+            int n = graph.Count;
+            List<City> path = new List<City>();
+            
+            int overallDistance = 0;
+            int lastIndex = 0;
+            int finishIndex = 0; // index of last visited vertex of DFS
+            int minCurrentDistance = Int32.MaxValue; // temp value for finding minimal value
+
+            City startCity = graph.GetCity(startCityName);
+            startCity.VisitIt();
+            path.Add(startCity);
+            
+            for (int i = 0; i < n; i++)
+            {
+                List<Path> allPaths = graph[i].GetAllPaths();
+                for (int j = 0; j < allPaths.Count; j++)
+                {
+                    if (!allPaths[j].City.IsVisited)
+                    {
+                        if (allPaths[j].Distance < minCurrentDistance)
+                        {
+                            minCurrentDistance = allPaths[j].Distance;
+                            lastIndex = j;
+                        }
+                    }
+                }
+
+                if (!allPaths[lastIndex].City.IsVisited) {
+
+                    allPaths[lastIndex].City.VisitIt();
+                    path.Add(allPaths[lastIndex].City);
+                    overallDistance += minCurrentDistance;
+
+                    minCurrentDistance = Int32.MaxValue;
+
+                    i = lastIndex;
+                    finishIndex = lastIndex;
+                    lastIndex = 0;
+                   
+                }
+                if (i == n - 1)
+                {
+                    path.Add(startCity);
+                    overallDistance+= graph[finishIndex].GetAllPaths()[0].Distance;
+                }
+
+            }
+
+            Console.Write("Our path : ");
+
+            foreach(var item in path) {
+                Console.Write(item.Name + " ");
+            }
+            Console.WriteLine();
+            return overallDistance;
+        }
+
     }
 
 }

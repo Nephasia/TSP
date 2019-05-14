@@ -11,12 +11,25 @@ namespace TSPConsole.Objects {
         public string Name { get; private set; }
         List<Path> paths = new List<Path>();
 
+        public bool IsVisited { get; private set; } = false;
+
         public City(string n) {
             Name = n;
         }
 
+        public void VisitIt() {
+            IsVisited = true;
+        }
+
         public List<Path> GetAllPaths() {
             return paths;
+        }
+
+        public bool DoesPathExist(string cityName) {
+            for(int i = 0; i < paths.Count; i++) {
+                if (paths[i].City.Name == cityName) return true;
+            }
+            return false;
         }
 
         public void AddBiDirectionalPath(City to, int distance) {
@@ -24,7 +37,7 @@ namespace TSPConsole.Objects {
             to.AddOneDirectionPath(this, distance);
         }
 
-        private void AddOneDirectionPath(City to, int distance) {
+        public void AddOneDirectionPath(City to, int distance) {
             paths.Add(new Path(to, distance));
         }
 
