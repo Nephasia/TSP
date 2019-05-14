@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Diagnostics;
 
 namespace TSP
 {
@@ -13,5 +14,9 @@ namespace TSP
     /// </summary>
     public partial class App : Application
     {
+        public void Func()
+        {
+            Console.WriteLine("aa");
+        }
     }
 }
