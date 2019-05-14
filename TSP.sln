@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSP", "TSP\TSP.csproj", "{E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{8FA42F0E-8961-4978-A3DE-C0F4B4E7016E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSPConsole", "TSPConsole\TSPConsole.csproj", "{9F810807-AB35-495F-8FD1-0DE7D1797A82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8FA42F0E-8961-4978-A3DE-C0F4B4E7016E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FA42F0E-8961-4978-A3DE-C0F4B4E7016E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FA42F0E-8961-4978-A3DE-C0F4B4E7016E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F810807-AB35-495F-8FD1-0DE7D1797A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F810807-AB35-495F-8FD1-0DE7D1797A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F810807-AB35-495F-8FD1-0DE7D1797A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F810807-AB35-495F-8FD1-0DE7D1797A82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
