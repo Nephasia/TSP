@@ -35,14 +35,14 @@ namespace TSPConsole {
 
             //graph.ShowAllDistances();
 
-            int shortestPath = ShortestPath(graph, "A");
+        //    int shortestPath = ShortestPath(graph, "A");
 
-            Console.WriteLine("Distance of this path is equal to: " + shortestPath);
+        //    Console.WriteLine("Distance of this path is equal to: " + shortestPath);
 
             Console.ReadKey();
         }
 
-        public static int ShortestPath(Graph graph, string startCityName) {
+        public static Tuple<int, string> ShortestPath(Graph graph, string startCityName) {
 
             int n = graph.Count;
             List<City> path = new List<City>();
@@ -92,13 +92,15 @@ namespace TSPConsole {
 
             }
 
-            Console.Write("Our path : ");
+            string pathString = "";
 
-            foreach(var item in path) {
-                Console.Write(item.Name + " ");
+            for (int i = 0; i < path.Count; i++) {
+                pathString += path[i].Name + (i != path.Count - 1 ? "->" : "");
             }
-            Console.WriteLine();
-            return overallDistance;
+
+            Tuple<int, string> d = new Tuple<int, string> ( overallDistance, pathString );
+
+            return d;
         }
 
     }

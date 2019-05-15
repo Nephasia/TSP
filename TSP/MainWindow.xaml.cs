@@ -62,12 +62,17 @@ namespace TSP {
 
         private void FindPath_Click(object sender, RoutedEventArgs e)
         {
-            int value = TSPConsole.Program.ShortestPath(Graph, Graph[0].Name);
-
+            Tuple<int, string> value = TSPConsole.Program.ShortestPath(Graph, Graph[0].Name);
             AddCity.IsEnabled = false;
-            ShortestPath.Visibility = Visibility.Visible;
-            ShortestPath.Text = value.ToString();
             FindPath.Visibility = Visibility.Hidden;
+            ShortestPath.Visibility = Visibility.Visible;
+            ShortestPath.Content =
+                "Path length : " +
+                value.Item1.ToString() +
+                System.Environment.NewLine +
+                value.Item2
+            ;
+            
 
         }
     }

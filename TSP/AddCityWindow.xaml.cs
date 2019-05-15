@@ -32,6 +32,7 @@ namespace TSP
             Distance.Visibility = Visibility.Hidden;
             ToAdd.Content = "Remianing distances : " + pathsToFill;
             CityName.Content = "New city name : ";
+            CityNameText.Text = "";
         }
 
         private void AddCity_Click(object sender, RoutedEventArgs e)
