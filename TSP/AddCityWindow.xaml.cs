@@ -65,6 +65,7 @@ namespace TSP
 
         void CloseWindow() {
             MainWindow.Instance.AddCitiesCount();
+            MainWindow.Instance.AddCity.IsEnabled = true;
             this.Close();
         }
 
@@ -82,6 +83,11 @@ namespace TSP
             if (firstInit) return;
             else if (int.TryParse(CityNameText.Text, out a)) AddCity.IsEnabled = true;
             else AddCity.IsEnabled = false;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow.Instance.AddCity.IsEnabled = true;
         }
     }
 }

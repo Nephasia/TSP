@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TSP"
         mc:Ignorable="d"
-        Title="AddCityWindow" Height="150" Width="400">
+        Title="AddCityWindow" Height="150" Width="400" Closing="Window_Closing">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <TextBox x:Name="CityNameText" HorizontalAlignment="Left" Height="63" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="140" Margin="198,10,0,0" TextChanged="CityNameText_TextChanged"/>
         <Label x:Name="CityName" Content="CityName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,7,0,0" Height="71" Width="113"/>
         <Button x:Name="AddCity" Content="AddCity" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="289,78,0,0" Click="AddCity_Click"/>
