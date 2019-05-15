@@ -95,7 +95,7 @@ namespace TSPConsole {
             string pathString = "";
 
             for (int i = 0; i < path.Count; i++) {
-                pathString += path[i].Name + (i != path.Count - 1 ? "->" : "");
+                pathString += path[i].Name + (i != path.Count - 1 ? "->" : "") + Environment.NewLine;
             }
 
             Tuple<int, string> d = new Tuple<int, string> ( overallDistance, pathString );

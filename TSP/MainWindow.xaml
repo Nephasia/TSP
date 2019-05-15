@@ -20,7 +20,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <ScrollViewer x:Name="ShortestPath" HorizontalAlignment="Left" Height="73" Margin="150,10,0,0" VerticalAlignment="Top" Width="210"/>
+        <ScrollViewer x:Name="ShortestPath" HorizontalAlignment="Left" Height="73" Margin="150,10,0,0" VerticalAlignment="Top" Width="210" CanContentScroll="True"/>
 
     </Grid>
 </Window>
