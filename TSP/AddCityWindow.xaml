@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TSP"
         mc:Ignorable="d"
-        Title="AddCityWindow" Height="150" Width="400">
+        Title="AddCityWindow" Height="150" Width="400" Closing="Window_Closing_1">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="285*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="CityNameText" HorizontalAlignment="Left" Height="63" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" Margin="198,10,0,0" TextChanged="CityNameText_TextChanged"/>
-        <Label x:Name="CityName" Content="CityName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,7,0,0" Height="71" Width="113"/>
-        <Button x:Name="AddCity" Content="AddCity" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="289,78,0,0" Click="AddCity_Click"/>
-        <Label x:Name="Distance" Content="Distance to: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,7,0,0" Width="85"/>
-        <Label x:Name="ToAdd" Content="Distances to add: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,78,0,0"/>
+        <TextBox x:Name="CityNameText" HorizontalAlignment="Left" Height="63" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" Margin="89.2,10,0,0" TextChanged="CityNameText_TextChanged" Grid.Column="2"/>
+        <Label x:Name="CityName" Content="CityName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53.5,7,0,0" Height="71" Width="113" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="AddCity" Content="AddCity" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="179.2,78,0,0" Click="AddCity_Click" Grid.Column="2"/>
+        <Label x:Name="Distance" Content="Distance to: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,7,0,0" Width="85" Grid.ColumnSpan="2"/>
+        <Label x:Name="ToAdd" Content="Distances to add: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,78,0,0" Grid.ColumnSpan="3"/>
 
     </Grid>
 </Window>

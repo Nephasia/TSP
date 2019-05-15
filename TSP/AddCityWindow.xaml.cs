@@ -96,7 +96,7 @@ namespace TSP
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MainWindow.Instance.AddCity.IsEnabled = true;
         }
