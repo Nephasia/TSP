@@ -57,6 +57,7 @@ namespace TSP {
         private void AddCity_Click(object sender, RoutedEventArgs e)
         {
             AddCityWindow addCityWindow = new AddCityWindow();
+            AddCity.IsEnabled = false;
             addCityWindow.Show();
         }
 
