@@ -33,6 +33,7 @@ namespace TSP
             ToAdd.Content = "Remianing distances : " + pathsToFill;
             CityName.Content = "New city name : ";
             CityNameText.Text = "";
+            AddCity.IsEnabled = false;
         }
 
         private void AddCity_Click(object sender, RoutedEventArgs e)
@@ -80,8 +81,9 @@ namespace TSP
         {
             int a;
 
-            if (firstInit) return;
-            else if (int.TryParse(CityNameText.Text, out a)) AddCity.IsEnabled = true;
+            if(AddCity.Content == string.Empty) AddCity.IsEnabled = false;
+            else if (firstInit) return;
+            else if (firstInit && int.TryParse(CityNameText.Text, out a)) AddCity.IsEnabled = true;
             else AddCity.IsEnabled = false;
         }
 
