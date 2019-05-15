@@ -32,7 +32,6 @@ namespace TSP
             Distance.Visibility = Visibility.Hidden;
             ToAdd.Content = "Remianing distances : " + pathsToFill;
             CityName.Content = "New city name : ";
-            CityNameText.Text = "";
             AddCity.IsEnabled = false;
         }
 
@@ -80,10 +79,20 @@ namespace TSP
         {
             int a;
 
-            if(AddCity.Content == string.Empty) AddCity.IsEnabled = false;
-            else if (firstInit) return;
-            else if (firstInit && int.TryParse(CityNameText.Text, out a)) AddCity.IsEnabled = true;
-            else AddCity.IsEnabled = false;
+            if(CityNameText.Text == "") {
+                AddCity.IsEnabled = false;
+                Console.WriteLine("0");
+            }
+            else if (!firstInit && int.TryParse(CityNameText.Text, out a)){
+                AddCity.IsEnabled = true;
+                Console.WriteLine("1");
+            } else if (firstInit && CityNameText.Text != "") {
+                AddCity.IsEnabled = true;
+                Console.WriteLine("2");
+            } else {
+                AddCity.IsEnabled = false;
+                Console.WriteLine("3");
+            }
         }
     }
 }
