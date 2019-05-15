@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TSP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="150" Width="4
-        00">
+        Title="MainWindow" Height="150" Width="400">
     <Grid>
         <Button x:Name="AddCity" Content="AddCity" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,88,0,0" Click="AddCity_Click"/>
         <Label x:Name="CitiesAdded" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,10,0,0" Height="28" Width="36"/>
@@ -16,7 +15,7 @@
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="0"/>
+                    <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
